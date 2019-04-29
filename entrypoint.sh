@@ -4,7 +4,7 @@ do
 #    waitTime=$(shuf -i 1-5 -n 1)
 #    sleep $waitTime * 0.01 &
 #    wait $!
-   sleep 0.01
+   sleep ${INTERVAL:-0.01}
    instruction=$(shuf -i 0-4 -n 1)
    d=`date -Iseconds`
    case "$instruction" in
