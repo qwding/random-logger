@@ -1,20 +1,17 @@
 #!/bin/sh
+
+init() {
+    for i in `seq 1 ${BATCH:-100}`; do
+        echo "output:test$i"
+    done
+}
+
+data="`init`"
 while [ 1 ]
 do
 #    waitTime=$(shuf -i 1-5 -n 1)
 #    sleep $waitTime * 0.01 &
 #    wait $!
-   sleep ${INTERVAL:-0.01}
-   instruction=$(shuf -i 0-4 -n 1)
-   d=`date -Iseconds`
-   case "$instruction" in
-      "1") echo "$d ERROR something happened in this execution."
-      ;;
-      "2") echo "$d INFO takes the value and converts it to string."
-      ;;
-      "3") echo "$d WARN variable not in use."
-      ;;
-      "4") echo "$d DEBUG first loop completed."
-      ;;
-   esac
+    sleep ${INTERVAL:-0.1}
+    echo "$data"
 done
